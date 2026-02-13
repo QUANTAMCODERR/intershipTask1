@@ -3,66 +3,161 @@ import { useState } from "react";
 export default function NumberGrid() {
 
   const rows = Array.from({ length: 10 }, (_, i) => 1000 + i * 10);
-  const [selectedNumbers, setSelectedNumbers] = useState([]);
+  const [values, setValues] = useState({});
 
-  const toggleNumber = (num) => {
-    setSelectedNumbers((prev) =>
-      prev.includes(num)
-        ? prev.filter((n) => n !== num)
-        : [...prev, num]
-    );
+  const handleChange = (key, val) => {
+    setValues(prev => ({
+      ...prev,
+      [key]: val
+    }));
   };
 
   return (
-    <div className="flex-1 bg-gray-100 text-black p-2 sm:p-4 overflow-x-auto">
+    <>
+{/* ⭐⭐⭐ MOBILE VIEW (MORE COMPACT HEIGHT) ⭐⭐⭐ */}
+<div className="sm:hidden flex-1 bg-gray-200 text-black text-center p-[2px]">
 
-      {/* ⭐ WRAPPER — keeps desktop layout but allows mobile scroll */}
-      <div className="min-w-[720px]">
+  {/* HEADER LABEL ROW */}
+  <div className="grid grid-cols-11 gap-[1px] text-[7px] font-bold leading-tight">
+    <div>BLOCK</div>
+    <div>B0</div>
+    {Array.from({ length: 9 }, (_, i) => (
+      <div key={i}>{i + 1}</div>
+    ))}
+  </div>
 
-        {/* HEADER */}
-        <div className="grid grid-cols-11 gap-2 mb-3 items-center font-bold">
+  {/* HEADER INPUT ROW */}
+  <div className="grid grid-cols-11 gap-[1px] mb-[2px]">
+    <div></div>
+
+    <div className="flex justify-center">
+      <input
+        type="text"
+        value={values["B0"] || ""}
+        onChange={(e)=>handleChange("B0", e.target.value)}
+        className="w-[90%] h-3 rounded-full bg-white border border-gray-400 text-center text-[7px]"
+      />
+    </div>
+
+    {Array.from({ length: 9 }, (_, i) => (
+      <div key={i} className="flex justify-center">
+        <input
+          type="text"
+          value={values[`H${i}`] || ""}
+          onChange={(e)=>handleChange(`H${i}`, e.target.value)}
+          className="w-[90%] h-3.25 rounded-full bg-white border border-gray-400 text-center text-[7px]"
+        />
+      </div>
+    ))}
+  </div>
+
+  {/* ROWS */}
+  {rows.map((start, rowIndex) => (
+    <div key={start} className="grid grid-cols-11 gap-[1px] mb-[2px] items-center">
+
+      <div className="flex flex-col items-center font-bold text-[7px] leading-tight">
+        F{rowIndex}
+        <input
+          type="text"
+          value={values[`F${rowIndex}`] || ""}
+          onChange={(e)=>handleChange(`F${rowIndex}`, e.target.value)}
+          className="mt-[1px] w-[90%] h-[13.5px] rounded-full bg-white border border-gray-400 text-center text-[7px]"
+        />
+      </div>
+
+      {Array.from({ length: 10 }, (_, i) => {
+        const number = start + i;
+
+        return (
+          <div key={number} className="flex flex-col items-center leading-tight">
+            <span className="font-bold text-[7px]">{number}</span>
+            <input
+              type="text"
+              value={values[number] || ""}
+              onChange={(e)=>handleChange(number, e.target.value)}
+              className="mt-[1px] w-[90%] h-3 rounded-full bg-white border border-gray-400 text-center text-[7px]"
+            />
+          </div>
+        );
+      })}
+    </div>
+  ))}
+</div>
+
+
+
+      {/* ⭐⭐⭐ DESKTOP VIEW (UNCHANGED — YOUR ORIGINAL CODE) ⭐⭐⭐ */}
+      <div className="hidden sm:block flex-1 bg-gray-200 text-black text-center p-2">
+
+        {/* HEADER LABEL ROW */}
+        <div className="grid grid-cols-11 gap-1 text-[10px] sm:text-sm font-bold text-center">
           <div>BLOCK</div>
-          <div className="text-center">B0</div>
+          <div>B0</div>
           {Array.from({ length: 9 }, (_, i) => (
-            <div key={i} className="text-center">{i + 1}</div>
+            <div key={i}>{i + 1}</div>
+          ))}
+        </div>
+
+        {/* HEADER INPUT ROW */}
+        <div className="grid grid-cols-11 gap-1 mb-2">
+          <div></div>
+
+          <div className="flex justify-center">
+            <input
+              type="text"
+              value={values["B0"] || ""}
+              onChange={(e)=>handleChange("B0", e.target.value)}
+              className="w-[80%] h-5 rounded-full bg-white border border-gray-400 text-center text-[10px]"
+            />
+          </div>
+
+          {Array.from({ length: 9 }, (_, i) => (
+            <div key={i} className="flex justify-center">
+              <input
+                type="text"
+                value={values[`H${i}`] || ""}
+                onChange={(e)=>handleChange(`H${i}`, e.target.value)}
+                className="w-[80%] h-5 rounded-full bg-white border border-gray-400 text-center text-[10px]"
+              />
+            </div>
           ))}
         </div>
 
         {/* ROWS */}
         {rows.map((start, rowIndex) => (
+          <div key={start} className="grid grid-cols-11 gap-1 mb-2 items-center">
 
-          <div key={start} className="grid grid-cols-11 gap-2 mb-2 items-center">
-
-            <div className="font-bold">
+            <div className="flex flex-col items-center font-bold text-[10px] sm:text-sm">
               F{rowIndex}
+              <input
+                type="text"
+                value={values[`F${rowIndex}`] || ""}
+                onChange={(e)=>handleChange(`F${rowIndex}`, e.target.value)}
+                className="mt-1 w-[80%] h-5 rounded-full bg-white border border-gray-400 text-center text-[10px]"
+              />
             </div>
 
             {Array.from({ length: 10 }, (_, i) => {
-
               const number = start + i;
-              const isActive = selectedNumbers.includes(number);
 
               return (
-                <button
-                  key={number}
-                  onClick={() => toggleNumber(number)}
-                  className={`rounded-md p-2 flex flex-col items-center shadow transition text-xs sm:text-sm
-                    ${isActive
-                      ? "bg-blue-800 text-white"
-                      : "bg-white hover:bg-gray-200"
-                    }
-                  `}
-                >
-                  <span className="font-medium">{number}</span>
-                  <input type="checkbox" checked={isActive} readOnly />
-                </button>
+                <div key={number} className="flex flex-col items-center">
+                  <span className="font-bold text-[10px] sm:text-sm">
+                    {number}
+                  </span>
+                  <input
+                    type="text"
+                    value={values[number] || ""}
+                    onChange={(e)=>handleChange(number, e.target.value)}
+                    className="mt-1 w-[80%] h-5 rounded-full bg-white border border-gray-400 text-center text-[10px]"
+                  />
+                </div>
               );
             })}
           </div>
-
         ))}
 
       </div>
-    </div>
+    </>
   );
 }

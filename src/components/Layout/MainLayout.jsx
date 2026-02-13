@@ -7,27 +7,22 @@ import FooterBar from "../Footer/FooterBar";
 
 export default function MainLayout() {
   return (
-    <div className="min-h-screen flex flex-col bg-gray-200 select-none">
-
+    <div className="min-h-screen flex flex-col bg-white select-none">
       <Header />
       <Filters />
 
-      {/* Middle Section */}
-      <div className="flex flex-1 overflow-hidden
-                      flex-col lg:flex-row">
+      {/* ⭐ FIXED MIDDLE SECTION */}
+      <div className="flex items-start">
 
-        {/* Sidebar */}
-        <div className="lg:w-56 w-full">
+        <div className="w-24 sm:w-54">
           <BlockSidebar />
         </div>
 
-        {/* Grid */}
-        <div className="flex-1 overflow-x-auto">
+        <div className="flex-1">
           <NumberGrid />
         </div>
 
-        {/* Qty / Amt Panel */}
-        <div className="lg:w-32 w-full">
+        <div className="w-20 sm:w-34">
           <QtyAmtPanel />
         </div>
 

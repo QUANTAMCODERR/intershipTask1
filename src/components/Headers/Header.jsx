@@ -2,8 +2,22 @@ import { useEffect, useState } from "react";
 import ActionButtons from "./ActionButtons";
 
 export default function Header() {
-  const numbers = [1028,1195,1200,1312,1475,1572,1641,1723,1850,1935];
 
+  // ⭐ color mapping (your updated colors)
+  const numbers = [
+    { value: 1028, color: "bg-red-600" },
+    { value: 1195, color: "bg-blue-600" },
+    { value: 1200, color: "bg-purple-600" },
+    { value: 1312, color: "bg-green-600" },
+    { value: 1475, color: "bg-indigo-700" },
+    { value: 1572, color: "bg-orange-400" },
+    { value: 1641, color: "bg-red-500" },
+    { value: 1723, color: "bg-orange-700" },
+    { value: 1850, color: "bg-teal-800" },
+    { value: 1935, color: "bg-yellow-500 " },
+  ];
+
+  // ⭐ live date & time
   const [dateTime, setDateTime] = useState(new Date());
 
   useEffect(() => {
@@ -14,50 +28,43 @@ export default function Header() {
   }, []);
 
   return (
-    <div className="bg-black p-2 space-y-2 w-full text-white">
+    <div className="w-full bg-black  text-white">
 
-      {/* TOP BAR */}
-      <div className="
-        flex 
-        flex-col 
-        sm:flex-row 
-        sm:justify-between 
-        sm:items-start 
-        gap-2
-      ">
+      {/* ⭐ TOP STRIP */}
+      <div className="w-full flex items-center justify-between  sm:px-1 py-0.75 mb-1">
 
-        {/* Left — Top Numbers */}
-        <div className="flex gap-2 overflow-x-auto whitespace-nowrap scrollbar-hide">
+        {/* LEFT — NUMBER STRIP */}
+        <div className="flex gap-0.5 flex-1 min-w-0">
           {numbers.map((num, i) => (
             <div
               key={i}
-              className="
-                px-4 py-2 
-                rounded-md 
-                text-xs sm:text-sm 
-                font-semibold 
-                bg-gradient-to-r 
-                from-red-500 
-                to-purple-600 
-                flex-shrink-0
-              "
+              className={`
+                ${num.color}
+                flex-1
+                text-[10px] sm:text-[12px]
+                font-bold
+                py-1.25 sm:py-1.5
+                text-center
+                whitespace-nowrap
+              `}
             >
-              {num}
+              {num.value}
             </div>
           ))}
         </div>
 
-        {/* Right — Date / Time / Welcome */}
+        {/* RIGHT — DATE / TIME / WELCOME */}
         <div className="
-          text-xs 
-          sm:text-sm 
-          text-center 
-          sm:text-right 
+          text-[9px] sm:text-[11px]
+          text-right
+          pl-1
+          sm:pl-1
+          whitespace-nowrap
           leading-tight
+          shrink-0
         ">
-          <div className="text-gray-300 flex justify-center sm:justify-end gap-2 font-mono">
-            <span>{dateTime.toLocaleDateString()}</span>
-            <span>{dateTime.toLocaleTimeString()}</span>
+          <div className="font-mono">
+            {dateTime.toLocaleDateString()} {dateTime.toLocaleTimeString()}
           </div>
 
           <div className="font-semibold">
@@ -67,8 +74,10 @@ export default function Header() {
 
       </div>
 
-      {/* Buttons Row */}
-      <ActionButtons />
+      {/* ⭐ ACTION BUTTONS SECTION */}
+      <div className="sm:px-0.5 pb-3 bg-white">
+        <ActionButtons />
+      </div>
 
     </div>
   );

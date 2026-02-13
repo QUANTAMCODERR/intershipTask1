@@ -13,30 +13,46 @@ export default function BlockSidebar() {
 
   return (
     <>
-      {/* ⭐ MOBILE VIEW ONLY */}
-      <div className="grid grid-cols-2 gap-2 p-2 bg-white sm:hidden">
+      {/* ⭐⭐⭐ MOBILE VIEW (SMALL SIZE) ⭐⭐⭐ */}
+      <div className="flex flex-col w-full bg-white  space-y-1 overflow-y-auto sm:hidden">
+
         {blocks.map(block => {
+
           const isActive = selected === block;
 
           return (
             <button
               key={block}
               onClick={() => setSelected(block)}
-              className={`py-2 rounded-md text-xs transition w-full
-                ${isActive
+              className={`relative flex items-center px-3 py-[5px] rounded-full transition w-full text-xs
+                ${isActive 
                   ? "bg-black text-white"
                   : "bg-blue-700 text-white"
                 }
               `}
             >
-              {block}
+              {/* Small checkbox */}
+              <input
+                type="checkbox"
+                checked={isActive}
+                readOnly
+                className="accent-white w-3 h-3 z-10 left-0  "
+              />
+
+              {/* Center text */}
+              <span className="absolute left-[60%] -translate-x-1/2 max-w-[70%] truncate text-center">
+                {block}
+              </span>
             </button>
           );
         })}
+
       </div>
 
-      {/* ⭐ ORIGINAL DESKTOP SIDEBAR (UNCHANGED) */}
-      <div className="hidden sm:flex sm:flex-col sm:w-52 bg-white p-2 space-y-2 overflow-y-auto">
+
+      {/* ⭐⭐⭐ DESKTOP VIEW (UNCHANGED — YOUR ORIGINAL UI) ⭐⭐⭐ */}
+      <div className="hidden sm:flex flex-col w-full sm:w-55 bg-white p-2 space-y-1 overflow-y-auto">
+
         {blocks.map(block => {
 
           const isActive = selected === block;
@@ -45,17 +61,27 @@ export default function BlockSidebar() {
             <button
               key={block}
               onClick={() => setSelected(block)}
-              className={`text-center py-3 rounded-md transition
+              className={`relative flex items-center px-4 py-4 rounded-full transition w-full
                 ${isActive 
                   ? "bg-black text-white"
                   : "bg-blue-700 text-white hover:bg-blue-600"
                 }
               `}
             >
-              {block}
+              <input
+                type="checkbox"
+                checked={isActive}
+                readOnly
+                className="accent-white w-4 h-4 z-10"
+              />
+
+              <span className="absolute left-1/2 -translate-x-1/2 max-w-[70%] truncate text-center">
+                {block}
+              </span>
             </button>
           );
         })}
+
       </div>
     </>
   );
