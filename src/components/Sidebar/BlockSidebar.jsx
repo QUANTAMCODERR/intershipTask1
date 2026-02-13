@@ -27,7 +27,7 @@ export default function BlockSidebar() {
               className={`relative flex items-center px-3 py-[5px] rounded-full transition w-full text-xs
                 ${isActive 
                   ? "bg-black text-white"
-                  : "bg-blue-700 text-white"
+                  : "bg-blue-900 text-white"
                 }
               `}
             >
@@ -64,7 +64,7 @@ export default function BlockSidebar() {
               className={`relative flex items-center px-4 py-4 rounded-full transition w-full
                 ${isActive 
                   ? "bg-black text-white"
-                  : "bg-blue-700 text-white hover:bg-blue-600"
+                  : "bg-blue-900 text-white hover:bg-blue-600"
                 }
               `}
             >
