@@ -64,55 +64,33 @@ export default function ActionButtons() {
           ))}
         </div>
       </div>
+{/* ⭐⭐⭐ MOBILE / TABLET VIEW — LANDSCAPE LIKE HEADER ⭐⭐⭐ */}
+<div className="lg:hidden w-full">
 
-{/* ⭐⭐⭐ MOBILE / TABLET VIEW ⭐⭐⭐ */}
-<div className="flex flex-col gap-2 lg:hidden p-1 w-full">
+  <div className="flex gap-0.5 w-full min-w-0">
 
-  {/* ⭐ FIRST ROW — 5 COLUMNS */}
-  <div className="grid grid-cols-5 gap-1 w-full">
-    {timingButtons.slice(0,5).map((btn) => (
+    {[...timingButtons, ...rightButtons].map((btn) => (
       <button
         key={btn.label}
         className={`
           ${btn.style}
-          text-white font-semibold
-          py-2 md:py-1
-          px-1
-          text-[11px] md:text-[9px]
+          flex-1
+          min-w-0
+          text-white
+          text-[9px]
+          sm:text-[11px]
+          font-semibold
+          py-1.5
           border border-black
-          rounded-xl
+          rounded-lg
           shadow
-          font-mono
           whitespace-nowrap
-          w-full
         `}
       >
         {btn.label || "--:--:--"}
       </button>
     ))}
-  </div>
 
-  {/* ⭐ SECOND ROW — 6 COLUMNS */}
-  <div className="grid grid-cols-6 gap-1 w-full">
-    {[...timingButtons.slice(5), ...rightButtons].map((btn) => (
-      <button
-        key={btn.label}
-        className={`
-          ${btn.style}
-          text-white font-bold
-          py-2 md:py-1
-          px-1
-          text-[11px] md:text-[9px]
-          border border-black
-          rounded-xl
-          shadow
-          whitespace-nowrap
-          w-full
-        `}
-      >
-        {btn.label}
-      </button>
-    ))}
   </div>
 
 </div>
