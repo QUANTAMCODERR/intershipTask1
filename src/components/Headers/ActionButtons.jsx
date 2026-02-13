@@ -32,7 +32,6 @@ export default function ActionButtons() {
     { label: "REFRESH", style: "bg-blue-700" },
   ];
 
-
   const rightButtons = [
     { label: "3D Game", style: "bg-orange-500" },
     { label: "Password", style: "bg-black" },
@@ -66,54 +65,42 @@ export default function ActionButtons() {
         </div>
       </div>
 
-{/* ⭐⭐⭐ MOBILE / TABLET VIEW ⭐⭐⭐ */}
-<div className="flex flex-col gap-2 lg:hidden p-1">
+      {/* ⭐⭐⭐ MOBILE / TABLET VIEW ⭐⭐⭐ */}
+      <div className="flex flex-col gap-2 lg:hidden p-1">
+        {/* FIRST ROW — 5 COLUMNS */}
+        <div className="grid grid-cols-5 gap-1">
+          {timingButtons.slice(0, 5).map((btn) => (
+            <button
+              key={btn.label}
+              className={`${btn.style}
+        text-white font-semibold
+        py-2 px-1 min-w-0
+        border border-black rounded-xl
+        shadow font-mono text-[11px]
+        whitespace-nowrap overflow-hidden text-ellipsis`}
+            >
+              {btn.label || "--:--:--"}
+            </button>
+          ))}
+        </div>
 
-  {/* ⭐ FIRST ROW */}
-  <div className="grid grid-cols-5 md:grid-cols-8 gap-1">
-    {timingButtons.slice(0,5).map((btn) => (
-      <button
-        key={btn.label}
-        className={`${btn.style}
-          text-white font-semibold
-          py-2 md:py-1.5
-          px-1 md:px-2
-          border border-black
-          rounded-xl shadow
-          font-mono
-          text-[11px] md:text-[10px]
-          whitespace-nowrap
-        `}
-      >
-        {btn.label || "--:--:--"}
-      </button>
-    ))}
-  </div>
-
-  {/* ⭐ SECOND ROW */}
-  <div className="grid grid-cols-6 md:grid-cols-11 gap-1">
-    {[...timingButtons.slice(5), ...rightButtons].map((btn) => (
-      <button
-        key={btn.label}
-        className={`${btn.style}
-          text-white
-          py-2 md:py-1.5
-          px-1 md:px-2
-          rounded-xl border border-black
-          shadow font-bold
-          text-[11px] md:text-[10px]
-          whitespace-nowrap
-        `}
-      >
-        {btn.label}
-      </button>
-    ))}
-  </div>
-
-</div>
-
-
-
+        {/* SECOND ROW — 6 COLUMNS */}
+        <div className="grid grid-cols-6 gap-1">
+          {[...timingButtons.slice(5), ...rightButtons].map((btn) => (
+            <button
+              key={btn.label}
+              className={`${btn.style}
+        text-white font-bold
+        py-2 px-1 min-w-0
+        border border-black rounded-xl
+        shadow text-[11px]
+        whitespace-nowrap overflow-hidden text-ellipsis`}
+            >
+              {btn.label}
+            </button>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
