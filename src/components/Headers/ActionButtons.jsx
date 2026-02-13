@@ -66,38 +66,49 @@ export default function ActionButtons() {
       </div>
 
 {/* ⭐⭐⭐ MOBILE / TABLET VIEW ⭐⭐⭐ */}
-<div className="flex flex-col gap-2 lg:hidden p-1">
+<div className="flex flex-col gap-2 lg:hidden p-1 w-full">
 
-  {/* FIRST ROW — 5 COLUMNS */}
-  <div className="grid grid-cols-5 gap-1">
+  {/* ⭐ FIRST ROW — 5 COLUMNS */}
+  <div className="grid grid-cols-5 gap-1 w-full">
     {timingButtons.slice(0,5).map((btn) => (
       <button
         key={btn.label}
-        className={`${btn.style}
-        text-white font-semibold
-        py-2 md:py-1
-        px-1
-        text-[11px] md:text-[9px]
-        border border-black rounded-xl
-        shadow font-mono whitespace-nowrap`}
+        className={`
+          ${btn.style}
+          text-white font-semibold
+          py-2 md:py-1
+          px-1
+          text-[11px] md:text-[9px]
+          border border-black
+          rounded-xl
+          shadow
+          font-mono
+          whitespace-nowrap
+          w-full
+        `}
       >
         {btn.label || "--:--:--"}
       </button>
     ))}
   </div>
 
-  {/* SECOND ROW — 6 COLUMNS */}
-  <div className="grid grid-cols-6 gap-1">
+  {/* ⭐ SECOND ROW — 6 COLUMNS */}
+  <div className="grid grid-cols-6 gap-1 w-full">
     {[...timingButtons.slice(5), ...rightButtons].map((btn) => (
       <button
         key={btn.label}
-        className={`${btn.style}
-        text-white font-bold
-        py-2 md:py-1
-        px-1
-        text-[11px] md:text-[9px]
-        border border-black rounded-xl
-        shadow whitespace-nowrap`}
+        className={`
+          ${btn.style}
+          text-white font-bold
+          py-2 md:py-1
+          px-1
+          text-[11px] md:text-[9px]
+          border border-black
+          rounded-xl
+          shadow
+          whitespace-nowrap
+          w-full
+        `}
       >
         {btn.label}
       </button>
@@ -105,6 +116,7 @@ export default function ActionButtons() {
   </div>
 
 </div>
+
 
     </div>
   );
