@@ -159,7 +159,7 @@ export default function FooterBar() {
       <button
         className="
           bg-red-600 text-white font-semibold
-          px-2 sm:px-4 md:px-6 lg:px-10
+          px-3 sm:px-8 md:px-12 lg:px-10
           py-2 sm:py-3 md:py-4
           text-[10px] sm:text-xs md:text-sm
           whitespace-nowrap
@@ -173,8 +173,8 @@ export default function FooterBar() {
       <div
         className="
           flex flex-1 min-w-0
-          items-center justify-center
-          bg-gradient-to-r from-purple-700 to-purple-500
+          items-center justify-between
+          bg-linear-to-r from-purple-700 to-purple-500
           px-1 sm:px-3 md:px-5
           py-1 sm:py-2
           gap-1 sm:gap-3
@@ -186,7 +186,7 @@ export default function FooterBar() {
           placeholder="Barcode"
           className="
             flex-1 min-w-0
-            max-w-[120px] sm:max-w-xs md:max-w-md
+            max-w-30 sm:max-w-xs md:max-w-md
             px-2 sm:px-3
             py-1 sm:py-2
             rounded bg-white border-2
