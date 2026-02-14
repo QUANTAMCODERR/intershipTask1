@@ -138,7 +138,7 @@ export default function BlockSidebar() {
                 type="checkbox"
                 checked={isActive}
                 readOnly
-                className="accent-white w-3 h-2.5 z-10"
+                className="accent-white w-3 h-2.5 z-50"
               />
 
               <span className="absolute left-[60%] -translate-x-1/2 max-w-[70%] truncate text-center">
@@ -155,7 +155,7 @@ export default function BlockSidebar() {
 <div
   className="
     hidden sm:flex flex-col
-    flex-shrink-0
+    shrink-0
     w-[clamp(9.7rem,14vw,rem)]
     min-w-24
     bg-white
