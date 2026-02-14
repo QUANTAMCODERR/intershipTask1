@@ -66,46 +66,54 @@ export default function Filters() {
       </div>
 
 
-      {/* ⭐ DESKTOP VIEW */}
-      <div className="hidden sm:flex flex-wrap gap-1 w-full items-center">
+{/* ⭐ DESKTOP VIEW — RESPONSIVE FIXED */}
+<div className="hidden sm:flex w-full items-center gap-1 overflow-hidden">
 
-        {ranges.map(range => (
-          <div
-            key={range.label}
-            className="flex items-center gap-1 flex-1 min-w-[85px]"
-          >
-            {/* Checkbox OUTSIDE */}
-            <input
-              type="checkbox"
-              className="accent-black w-3 h-3"
-            />
+  {/* RANGE BUTTONS */}
+  <div className="flex gap-1 flex-5 min-w-0">
+    {ranges.map(range => (
+      <div
+        key={range.label}
+        className="flex items-center gap-1 flex-1 min-w-0"
+      >
+        {/* Checkbox */}
+        <input
+          type="checkbox"
+          className="accent-black w-3 h-3 shrink-0"
+        />
 
-            {/* Button */}
-            <button
-              className={`
-                w-full px-1 py-0.5 rounded text-sm
-                ${range.color}
-                text-white
-                whitespace-nowrap
-              `}
-            >
-              {range.label}
-            </button>
-
-          </div>
-        ))}
-
-        {/* EVEN ODD CP FP */}
-        <div className="ml-auto flex gap-3 items-center text-sm font-bold text-black">
-          {["EVEN","ODD","CP","FP"].map(label => (
-            <label key={label} className="flex items-center gap-1 cursor-pointer">
-              <input type="checkbox" />
-              {label}
-            </label>
-          ))}
-        </div>
-
+        {/* Button */}
+        <button
+          className={`
+            ${range.color}
+            flex-1 min-w-0
+            px-2
+            py-1
+            text-[clamp(9px,0.8vw,14px)]
+            rounded
+            text-white
+            whitespace-nowrap
+            flex items-center justify-center
+          `}
+        >
+          {range.label}
+        </button>
       </div>
+    ))}
+  </div>
+
+  {/* EVEN ODD CP FP */}
+  <div className="flex gap-3 items-center text-[clamp(9px,0.8vw,14px)] font-bold shrink-0">
+    {["EVEN","ODD","CP","FP"].map(label => (
+      <label key={label} className="flex items-center gap-1 whitespace-nowrap">
+        <input type="checkbox" />
+        {label}
+      </label>
+    ))}
+  </div>
+
+</div>
+
 
     </div>
   );
