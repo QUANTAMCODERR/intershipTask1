@@ -17,7 +17,7 @@ export default function MainLayout() {
       {/* ⭐ FIXED MIDDLE SECTION */}
       <div className="flex items-start">
 
-        <div className="w-24 sm:min-w-40 xs:min-w-30 md:min-w-48 lg:min-w-46">
+        <div className="w-24 sm:min-w-40 xs:min-w-30 md:min-w-46 lg:min-w-46">
           <BlockSidebar />
         </div>
 

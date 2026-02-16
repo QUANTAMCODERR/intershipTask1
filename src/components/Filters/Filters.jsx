@@ -88,7 +88,7 @@ export default function Filters() {
             ${range.color}
             flex-1 min-w-0
             px-2
-            py-1
+            py-0.5
             text-[clamp(9px,0.8vw,14px)]
             rounded
             text-white

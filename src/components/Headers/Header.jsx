@@ -31,7 +31,7 @@ export default function Header() {
     <div className="w-full bg-black  text-white">
 
       {/* ⭐ TOP STRIP */}
-      <div className="w-full flex items-center justify-between  sm:px-1 py-0.75 mb-1">
+      <div className="w-full flex items-center justify-between  sm:px-1 py-0.75 xs:mb-1">
 
         {/* LEFT — NUMBER STRIP */}
         <div className="flex gap-0.5 flex-1 min-w-0">
@@ -43,7 +43,7 @@ export default function Header() {
                 flex-1
                 text-[10px] sm:text-[12px]
                 font-bold
-                py-1.25 sm:py-1.5
+                py-1.25 sm:py-[1vh]
                 text-center
                 whitespace-nowrap
               `}
@@ -75,7 +75,7 @@ export default function Header() {
       </div>
 
       {/* ⭐ ACTION BUTTONS SECTION */}
-      <div className="sm:px-0.5 pb-3 bg-white">
+      <div className="sm:px-0.5  bg-white">
         <ActionButtons />
       </div>
 

@@ -35,7 +35,7 @@ export default function NumberGrid() {
         type="text"
         value={values["B0"] || ""}
         onChange={(e)=>handleChange("B0", e.target.value)}
-        className="w-[90%] h-2 rounded-full bg-white border border-gray-400 text-center text-[7px]"
+        className="w-[90%] h-2 md:h-[2vh] rounded-full bg-white border border-gray-400 text-center text-[7px]"
       />
     </div>
 
@@ -45,7 +45,7 @@ export default function NumberGrid() {
           type="text"
           value={values[`H${i}`] || ""}
           onChange={(e)=>handleChange(`H${i}`, e.target.value)}
-          className="w-[90%] h-2 rounded-full bg-white border border-gray-400 text-center text-[7px]"
+          className="w-[90%] h-2 md:h-[2vh] rounded-full bg-white border border-gray-400 text-center text-[7px]"
         />
       </div>
     ))}
@@ -61,7 +61,7 @@ export default function NumberGrid() {
           type="text"
           value={values[`F${rowIndex}`] || ""}
           onChange={(e)=>handleChange(`F${rowIndex}`, e.target.value)}
-          className="mt-px w-[90%] h-2 rounded-full bg-white border border-gray-400 text-center text-[7px]"
+          className="mt-px w-[90%] h-2 md:h-[2vh] rounded-full bg-white border border-gray-400 text-center text-[7px]"
         />
       </div>
 
@@ -75,7 +75,7 @@ export default function NumberGrid() {
               type="text"
               value={values[number] || ""}
               onChange={(e)=>handleChange(number, e.target.value)}
-              className="mt-px w-[90%] h-2 rounded-full bg-white border border-gray-400 text-center text-[7px]"
+              className="mt-px w-[90%] h-2 md:h-[2vh] rounded-full bg-white border border-gray-400 text-center text-[7px]"
             />
           </div>
         );
@@ -87,10 +87,10 @@ export default function NumberGrid() {
 
 
       {/* ⭐⭐⭐ DESKTOP VIEW (UNCHANGED — YOUR ORIGINAL CODE) ⭐⭐⭐ */}
-      <div className="hidden sm:block flex-1 bg-gray-200 text-black text-center py-1">
+      <div className="hidden sm:block flex-1 bg-gray-200 text-black text-center ">
 
         {/* HEADER LABEL ROW */}
-        <div className="grid grid-cols-11 gap-1 text-[10px] sm:text-sm font-bold text-center">
+        <div className="grid grid-cols-11 gap-1 text-[5px] sm:text-[1.7vh] font-bold text-center">
           <div>BLOCK</div>
           <div>B0</div>
           {Array.from({ length: 9 }, (_, i) => (
@@ -99,7 +99,7 @@ export default function NumberGrid() {
         </div>
 
         {/* HEADER INPUT ROW */}
-        <div className="grid grid-cols-11 gap-1 mb-2">
+        <div className="grid grid-cols-11 gap-1 mb-">
           <div></div>
 
           <div className="flex justify-center">
@@ -107,7 +107,7 @@ export default function NumberGrid() {
               type="text" 
               value={values["B0"] || ""}
               onChange={(e)=>handleChange("B0", e.target.value)}
-              className="w-[70%] h-5 rounded-full bg-white border border-gray-400 text-center text-[10px]"
+              className="w-[50%] h-2 md:h-[2vh] rounded-full bg-white border border-gray-400 text-center text-[5px]"
             />
           </div>
 
@@ -117,7 +117,7 @@ export default function NumberGrid() {
                 type="text"
                 value={values[`H${i}`] || ""}
                 onChange={(e)=>handleChange(`H${i}`, e.target.value)}
-                className="w-[70%] h-5 rounded-full bg-white border border-gray-400 text-center text-[10px]"
+                className="w-[50%] h-2 md:h-[2vh] rounded-full bg-white border border-gray-400 text-center text-[5px]"
               />
             </div>
           ))}
@@ -125,15 +125,15 @@ export default function NumberGrid() {
 
         {/* ROWS */}
         {rows.map((start, rowIndex) => (
-          <div key={start} className="grid grid-cols-11 gap-1 mb-2 items-center">
+          <div key={start} className="grid grid-cols-11 gap-1 mb-[1.15vh] items-center">
 
-            <div className="flex flex-col items-center font-bold text-[10px] sm:text-sm">
+            <div className="flex flex-col items-center font-bold text-[5px] sm:text-[1.7vh]">
               F{rowIndex}
               <input
                 type="text"
                 value={values[`F${rowIndex}`] || ""}
                 onChange={(e)=>handleChange(`F${rowIndex}`, e.target.value)}
-                className="mt-1 w-[70%] h-5 rounded-full bg-white border border-gray-400 text-center text-[10px]"
+                className=" w-[50%] h-2 md:h-[2vh] rounded-full bg-white border border-gray-400 text-center text-[5px]"
               />
             </div>
 
@@ -142,14 +142,14 @@ export default function NumberGrid() {
 
               return (
                 <div key={number} className="flex flex-col items-center">
-                  <span className="font-bold text-[10px] sm:text-sm">
+                  <span className="font-bold text-[5px] sm:text-[1.7vh]">
                     {number}
                   </span>
                   <input
                     type="text"
                     value={values[number] || ""}
                     onChange={(e)=>handleChange(number, e.target.value)}
-                    className="mt-1 w-[70%] h-5 rounded-full bg-white border border-gray-400 text-center text-[10px]"
+                    className="mt-0 w-[50%] h-2 md:h-[2vh] rounded-full bg-white border border-gray-400 text-center text-[5px]"
                   />
                 </div>
               );

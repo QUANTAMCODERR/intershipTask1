@@ -8,10 +8,10 @@ export default function QtyAmtPanel() {
 
         {/* Header */}
         <div className="grid grid-cols-2 gap-0.5">
-          <button className="bg-red-600 text-white py-1 rounded-lg font-semibold text-[10px]">
+          <button className="bg-red-600 text-white py-0.5 rounded-lg font-semibold text-[10px]">
             Qty
           </button>
-          <button className="bg-red-600 text-white py-1 rounded-lg font-semibold text-[10px]">
+          <button className="bg-red-600 text-white py-0.5 rounded-lg font-semibold text-[10px]">
             Amt
           </button>
         </div>
@@ -24,7 +24,7 @@ export default function QtyAmtPanel() {
                 0
               </button>
 
-              <button className="bg-blue-900 text-white rounded-full py-[1.74px] text-[10px] font-semibold">
+              <button className="bg-blue-900 text-white rounded-full py-[1.95px] text-[10px] font-semibold">
                 0
               </button>
             </div>
@@ -38,24 +38,24 @@ export default function QtyAmtPanel() {
         
         {/* Header */}
         <div className="grid grid-cols-2 text-center">
-          <button className="bg-red-600 text-white py-4 px-4 ml-[1px] rounded-md font-semibold hover:bg-red-700 active:scale-95 text-xs transition cursor-pointer">
+      <button className="bg-red-600 text-white py-[0.8vh] sm:py-[1vh] px-4 ml-[1px] rounded-md font-semibold hover:bg-red-700 active:scale-95 text-xs transition cursor-pointer">
             Qty
           </button>
 
-          <button className="bg-red-600 text-white py-4 text-xs px-3 ml-[1px] rounded-md font-semibold hover:bg-red-700 active:scale-95 transition cursor-pointer">
+          <button className="bg-red-600 text-white py-[0.8vh] text-xs px-3 ml-[1px] rounded-md font-semibold hover:bg-red-700 active:scale-95 transition cursor-pointer">
             Amt
           </button>
         </div>
 
         {/* Rows */}
-        <div className="flex-1 overflow-auto space-y-1 py-0.25 ml-[1px]">
+        <div className="flex-1 overflow-auto space-y-0.5 py-0.5 ml-[1px]">
           {rows.map((_, index) => (
             <div key={index} className="grid grid-cols-2 gap-1">
-              <button className="bg-blue-900 text-white rounded-full py-[14.48px] text-center font-semibold shadow-inner hover:bg-blue-700 active:scale-95 transition cursor-pointer text-sm">
+              <button className="bg-blue-900 text-white rounded-full py-[1vh] sm:py-[0.55vh] lg:py-[1vh] text-center font-semibold shadow-inner hover:bg-blue-700 active:scale-95 transition cursor-pointer text-[10px]">
                 0
               </button>
 
-              <button className="bg-blue-900 text-white rounded-full py-3 px-4 text-center font-semibold shadow-inner hover:bg-blue-700 active:scale-95 transition cursor-pointer text-sm">
+              <button className="bg-blue-900 text-white rounded-full py- px-4 text-center font-semibold shadow-inner hover:bg-blue-700 active:scale-95 transition cursor-pointer text-[10px]">
                 0
               </button>
             </div>
