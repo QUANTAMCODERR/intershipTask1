@@ -1,6 +1,6 @@
 export default function FooterBar() {
   return (
-    <div className="w-full flex items-center h-14 sm:h-[5.5vw] lg:h-20">
+    <div className="w-full flex items-center h-12 sm:h-[5.5vw] lg:h-[4.3vw]">
 
       {/* LEFT DRAW BUTTON */}
       <button
@@ -70,10 +70,10 @@ export default function FooterBar() {
           shrink-0
         "
       >
-        <div className="bg-white text-black px-4 sm:px-6 h-8 md:h-12 sm:h-7 font-bold rounded text-center text-xs sm:text-sm flex items-center justify-center">
+        <div className="bg-white text-black px-4 sm:px-6 h-8 md:h-11 sm:h-7 font-bold rounded text-center text-xs sm:text-sm flex items-center justify-center">
           0
         </div>
-        <div className="bg-white text-black px-4 sm:px-6 h-8 md:h-12 sm:h-7 font-bold rounded text-center text-xs sm:text-sm flex items-center justify-center">
+        <div className="bg-white text-black px-4 sm:px-6 h-8 md:h-11 sm:h-7 font-bold rounded text-center text-xs sm:text-sm flex items-center justify-center">
           0
         </div>
       </div>

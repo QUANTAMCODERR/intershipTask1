@@ -31,7 +31,7 @@ export default function Header() {
     <div className="w-full bg-black  text-white">
 
       {/* ⭐ TOP STRIP */}
-      <div className="w-full flex items-center justify-between  sm:px-1 py-0.75 xs:mb-1">
+      <div className="w-full flex items-center justify-between  sm:px-1 py-0.75 xs:mb-1 lg:mb-1">
 
         {/* LEFT — NUMBER STRIP */}
         <div className="flex gap-0.5 flex-1 min-w-0">

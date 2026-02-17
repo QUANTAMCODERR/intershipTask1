@@ -51,7 +51,7 @@ export default function QtyAmtPanel() {
         <div className="flex-1 overflow-auto space-y-0.5 py-0.5 ml-[1px]">
           {rows.map((_, index) => (
             <div key={index} className="grid grid-cols-2 gap-1">
-              <button className="bg-blue-900 text-white rounded-full py-[1vh] sm:py-[0.55vh] lg:py-[1vh] text-center font-semibold shadow-inner hover:bg-blue-700 active:scale-95 transition cursor-pointer text-[10px]">
+              <button className="bg-blue-900 text-white rounded-full py-[1.2vh] sm:py-[0.7vh] lg:py-[1.2vh] text-center font-semibold shadow-inner hover:bg-blue-700 active:scale-95 transition cursor-pointer text-[10px]">
                 0
               </button>
 
